@@ -43,8 +43,11 @@ public class SplashActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         setAnimation();// Logo and Sirigannadam gelge animation setter
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-       // Pushbots.sharedInstance().init(this);
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+       Pushbots.sharedInstance().init(this);
+      ;
+
+
        mKenBurns = (KenBurnsView) findViewById(R.id.ken_burns_images);
        // mKenBurns.setImageResource(R.drawable.splash_background2);
         int[] ids = new int[]{R.drawable.splash_background1,R.drawable.splash_background2};

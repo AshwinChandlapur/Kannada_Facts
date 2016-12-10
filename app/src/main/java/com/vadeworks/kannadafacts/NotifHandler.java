@@ -22,7 +22,7 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.pushbots.push.Pushbots;
+
 
 
 public class NotifHandler extends AppCompatActivity {
@@ -36,7 +36,6 @@ public class NotifHandler extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_general);
 
-    // Pushbots.sharedInstance().setCustomHandler(NotifHandler.class);
 
         Typeface myFont = Typeface.createFromAsset(this.getAssets(),"fonts/quicksand.otf");
         TextView heading=(TextView)findViewById(R.id.heading);
@@ -71,8 +70,8 @@ public class NotifHandler extends AppCompatActivity {
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
                 .setTitle("Awesome!")
-                .setDescription("Glad to see you liked Karnataka Facts♥ Your 5 Star Rating will help us Serve Better.")
-                .setHeaderColor(R.color.feedbackgreen)
+                .setDescription("Glad to see you liked Type Kannada! Your 5 Star Rating will help us Serve Better.")
+                .setHeaderColor(R.color.casablanca2)
                 .setPositive("Give Us a Five", new MaterialDialog.SingleButtonCallback() {
 
                     @Override

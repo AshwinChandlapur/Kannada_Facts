@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.pushbots.push.Pushbots;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         AB.hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        Pushbots.sharedInstance().init(this);
         //Font Setting for Facts
         fact=(TextView)findViewById(R.id.fact);
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");
@@ -99,23 +101,31 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitial = new InterstitialAd(MainActivity.this);
-// Insert the Ad Unit ID
-        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-        interstitial.loadAd(adRequest);
-// Prepare an Interstitial Ad Listener
-        interstitial.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-// Call displayInterstitial() function
-                if (interstitial.isLoaded()) {
-                    interstitial.show();
-                }
 
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                AdRequest adRequest = new AdRequest.Builder().build();
+                interstitial = new InterstitialAd(MainActivity.this);
+// Insert the Ad Unit ID
+                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+                interstitial.loadAd(adRequest);
+// Prepare an Interstitial Ad Listener
+                interstitial.setAdListener(new AdListener() {
+                    public void onAdLoaded() {
+// Call displayInterstitial() function
+                        if (interstitial.isLoaded()) {
+                            interstitial.show();
+                        }
+
+                    }
+                });
             }
-        });
+        }, 3456);
+
         Intent intent=new Intent(MainActivity.this,SplashActivity.class);
-        // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 

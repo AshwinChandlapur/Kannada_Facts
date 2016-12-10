@@ -30,7 +30,7 @@
          android:layout_marginTop="10dp"
          android:alpha="0.0"
          android:textSize="20dp"
-         android:text="I am Boss!"
+         android:text="ಸಿರಿಗನ್ನಡಂ ಗೆಲ್ಗೆ, ಸಿರಿಗನ್ನಡಂ ಬಾಳ್ಗೆ"
          android:textColor="#ffffff" />
 
   <com.ramotion.foldingcell.FoldingCell
@@ -69,11 +69,11 @@
                      android:id="@+id/open"
                      android:gravity="center"
                      />
-                <TextView
+            <!--    <TextView
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Karnataka beauty."
-                     android:gravity="center"/>
+                     android:gravity="center"/>-->
 
                  <ru.katso.livebutton.LiveButton
                      xmlns:livebutton="http://schemas.android.com/apk/res-auto"
