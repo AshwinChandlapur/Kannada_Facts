@@ -28,12 +28,6 @@
     <color name="casablanca11">#9C27B0</color>
     <color name="casablanca12">#E91E63</color>
     <color name="casablanca13">#f44336</color>
-    <color name="feedbackgreen">#8BC34A</color>
-    <color name="global_color_green_primary">#4caf50</color>
-    <color name="global_color_green_primary_light">#c8e6c9</color>
-    <color name="global_color_green_primary_dark">#388e3c</color>
-    <color name="global_color_green_accent">#ffc107</color>
-    <color name="global_color_green_control_activated">#ffc107</color>
 
 
 </resources>
