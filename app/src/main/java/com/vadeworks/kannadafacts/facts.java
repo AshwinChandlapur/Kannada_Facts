@@ -233,7 +233,6 @@ public class facts {
         return facts[Result];
        // i--;
        // if(i<0)
-        //{i=facts.length;}
-        // facts[i];
+        //{i=facts.lengt
     }
 }
