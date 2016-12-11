@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.pushbots.push.Pushbots;
 
@@ -53,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         fact.setTypeface(myFont);
 
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         background=(RelativeLayout)findViewById(R.id.background);
         background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 1928);
+        }, 2500);
 
         Intent intent=new Intent(MainActivity.this,SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

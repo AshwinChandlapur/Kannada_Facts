@@ -139,7 +139,7 @@ public class SplashActivity extends Activity {
                 .setNegative("Suggestions", new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"+",nikhilnagaraju96@gmail.com"));
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -164,7 +164,7 @@ public class SplashActivity extends Activity {
                 .setPositive("Send Now", new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"+",nikhilnagaraju96@gmail.com"));
                         startActivity(intent);
                     }
                 })

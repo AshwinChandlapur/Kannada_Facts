@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
@@ -50,7 +51,9 @@ public class MainActivitykan extends AppCompatActivity {
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");
         fact.setTypeface(myFont);
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         background=(RelativeLayout)findViewById(R.id.background);
@@ -99,21 +102,26 @@ public class MainActivitykan extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitial = new InterstitialAd(MainActivitykan.this);
-// Insert the Ad Unit ID
-        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-        interstitial.loadAd(adRequest);
-// Prepare an Interstitial Ad Listener
-        interstitial.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-// Call displayInterstitial() function
-                if (interstitial.isLoaded()) {
-                    interstitial.show();
-                }
+        new Handler().postDelayed(new Runnable() {
 
+            @Override
+            public void run() {
+                AdRequest adRequest = new AdRequest.Builder().build();
+                interstitial = new InterstitialAd(MainActivitykan.this);
+// Insert the Ad Unit ID
+                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+                interstitial.loadAd(adRequest);
+// Prepare an Interstitial Ad Listener
+                interstitial.setAdListener(new AdListener() {
+                    public void onAdLoaded() {
+// Call displayInterstitial() function
+                        if (interstitial.isLoaded()) {
+                            interstitial.show();
+                        }
+                    }
+                });
             }
-        });
+        }, 2500);
         Intent intent=new Intent(MainActivitykan.this,SplashActivity.class);
         // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

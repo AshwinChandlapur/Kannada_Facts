@@ -80,7 +80,7 @@
                      android:layout_height="match_parent"
                      android:layout_width="match_parent"
                      android:gravity="center"
-                     android:text="Read!"
+                     android:text="ಕನ್ನಡದಲ್ಲಿ ಓದಿ"
                      android:textColor="#ffffff"
                      android:textStyle="bold"
                      android:paddingTop="7dp"
@@ -100,7 +100,7 @@
                      android:layout_height="match_parent"
                      android:layout_width="match_parent"
                      android:gravity="center"
-                     android:text="Read in English!"
+                     android:text="Read in English"
                      android:textColor="#ffffff"
                      android:textStyle="bold"
                      android:layout_marginTop="20dp"
@@ -130,7 +130,9 @@
                  android:layout_height="wrap_content"
                  android:src="@drawable/facto"
                  android:id="@+id/history"
-                 android:layout_gravity="center" />
+                 android:layout_gravity="center"
+                 android:background="@drawable/editborder"
+                 />
          </FrameLayout>
      </com.ramotion.foldingcell.FoldingCell>
 

@@ -90,7 +90,7 @@ public class facts {
             "The Old Mysore palace was destroyed in fire in 1897. The new Mysore Palace was built in 1912, at a cost of Rs.41.50 lakhs in the Indo-Saracenic style. Henry Irwin was the architect, and E.W. Fritchley worked as consulting Engineer.",
             "The Amba-Vilas Palace was built in 1912, at a cost of Rs.41.50 lakhs in the Indo-Saracenic style. Henry Irwin was the architect, and E.W. Fritchley worked as consulting Engineer.",
             "Avani is a temple in kolar, it is believed that Goddess Sita gave birth to Lava-Kusha in this place.",
-            "The Early capital of Ganga Empire was Manyapura which is around near Nelamangala.",
+            "The Early capital of Ganga Empire was Manyapura which is near Nelamangala.",
             "Karnataka's State Tree - Sandalwood",
             "Karnataka State Flower - Lotus State",
             "Karnataka's State Animal - Asian Elephant",
