@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="ಮಾಹಿತಿ ಓದಲು ಸ್ಕ್ರೀನ್ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nಕನ್ನಡದಲ್ಲಿ ಮಾಹಿತಿಗಳನ್ನು ಉತ್ತಮವಾಗಿ ಒಡಗಿಸುವುದರಲ್ಲಿ ನಮ್ಮ ಪರಿಶ್ರಮವಿದೆ. ಪದ ಬಳಕೆಯಲ್ಲಿ ತಪ್ಪಿದ್ದರೆ ಕ್ಷಮೆ ಇರಲಿ."
+        android:text="ಮಾಹಿತಿ ಓದಲು ಸ್ಕ್ರೀನ್ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nಕನ್ನಡದಲ್ಲಿ ಮಾಹಿತಿಗಳನ್ನು ಉತ್ತಮವಾಗಿ ಒದಗಿಸುವುದರಲ್ಲಿ ನಮ್ಮ ಪರಿಶ್ರಮವಿದೆ. ಪದ ಬಳಕೆಯಲ್ಲಿ ತಪ್ಪಿದ್ದರೆ ಕ್ಷಮೆ ಇರಲಿ."
         android:textSize="17dp"
         android:id="@+id/fact"
         android:textColor="#fff"
