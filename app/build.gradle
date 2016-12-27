@@ -8,8 +8,8 @@ android {
         applicationId "com.vadeworks.kannadafacts"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 3
-        versionName "1.1"
+        versionCode 4
+        versionName "1.11"
 
     }
     buildTypes {
@@ -30,5 +30,4 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:10.0.0'
     compile 'com.pushbots:pushbots-lib:+@aar'
     compile 'com.android.support:support-v4:25.0.1'
-
 }

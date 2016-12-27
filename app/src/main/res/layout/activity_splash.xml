@@ -128,11 +128,20 @@
              <ImageView
                  android:layout_width="500px"
                  android:layout_height="wrap_content"
-                 android:src="@drawable/facto"
+                 android:src="@drawable/facto2"
                  android:id="@+id/history"
                  android:layout_gravity="center"
                  android:background="@drawable/editborder"
                  />
+             <ImageView
+                 android:layout_width="0dp"
+                 android:layout_height="0dp"
+                 android:src="@drawable/share"
+                 android:id="@+id/trial"
+                 android:layout_below="@+id/history"
+                 android:visibility="invisible"
+                 android:layout_gravity="center"/>
+
          </FrameLayout>
      </com.ramotion.foldingcell.FoldingCell>
 

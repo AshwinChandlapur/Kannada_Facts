@@ -4,10 +4,13 @@ package com.vadeworks.kannadafacts;
         import android.animation.ObjectAnimator;
         import android.app.Activity;
         import android.content.Intent;
+        import android.graphics.Color;
         import android.media.Image;
         import android.net.Uri;
         import android.os.Bundle;
         import android.os.Handler;
+        import android.support.v4.view.animation.FastOutSlowInInterpolator;
+        import android.view.MotionEvent;
         import android.view.View;
         import android.view.WindowManager;
         import android.view.animation.AccelerateDecelerateInterpolator;
@@ -29,6 +32,7 @@ package com.vadeworks.kannadafacts;
         import com.vadeworks.kannadafacts.KenBurnsView;
         import java.util.Random;
 
+
 public class SplashActivity extends Activity {
 
     // Splash screen timer
@@ -45,7 +49,6 @@ public class SplashActivity extends Activity {
         setAnimation();// Logo and Sirigannadam gelge animation setter
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
        Pushbots.sharedInstance().init(this);
-      ;
 
 
        mKenBurns = (KenBurnsView) findViewById(R.id.ken_burns_images);
@@ -65,6 +68,8 @@ public class SplashActivity extends Activity {
                 finish();
             }
        }, SPLASH_TIME_OUT);
+
+
 
 
 
@@ -211,4 +216,5 @@ public class SplashActivity extends Activity {
         startActivity(startMain);
 
     }
+
 }

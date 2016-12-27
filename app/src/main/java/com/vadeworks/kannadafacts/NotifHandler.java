@@ -70,7 +70,7 @@ public class NotifHandler extends AppCompatActivity {
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
                 .setTitle("Awesome!")
-                .setDescription("Glad to see you liked Type Kannada! Your 5 Star Rating will help us Serve Better.")
+                .setDescription("Glad to see you liked Kannada Facts :) Your 5 Star Rating will help us Serve Better.")
                 .setHeaderColor(R.color.casablanca2)
                 .setPositive("Give Us a Five", new MaterialDialog.SingleButtonCallback() {
 
