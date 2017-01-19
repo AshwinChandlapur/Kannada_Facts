@@ -3,12 +3,18 @@ package com.vadeworks.kannadafacts;
         import android.animation.AnimatorSet;
         import android.animation.ObjectAnimator;
         import android.app.Activity;
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
         import android.content.Intent;
+        import android.graphics.Bitmap;
         import android.graphics.Color;
         import android.media.Image;
         import android.net.Uri;
         import android.os.Bundle;
         import android.os.Handler;
+        import android.support.v4.app.NotificationCompat;
+        import android.support.v4.app.TaskStackBuilder;
         import android.support.v4.view.animation.FastOutSlowInInterpolator;
         import android.view.MotionEvent;
         import android.view.View;
@@ -32,6 +38,8 @@ package com.vadeworks.kannadafacts;
         import com.vadeworks.kannadafacts.KenBurnsView;
         import java.util.Random;
 
+        import github.nisrulz.screenshott.ScreenShott;
+
 
 public class SplashActivity extends Activity {
 
@@ -49,7 +57,6 @@ public class SplashActivity extends Activity {
         setAnimation();// Logo and Sirigannadam gelge animation setter
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
        Pushbots.sharedInstance().init(this);
-
 
        mKenBurns = (KenBurnsView) findViewById(R.id.ken_burns_images);
        // mKenBurns.setImageResource(R.drawable.splash_background2);
@@ -94,6 +101,7 @@ public class SplashActivity extends Activity {
        historyfacts.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                startActivity(intent);
            }

@@ -30,4 +30,5 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:10.0.0'
     compile 'com.pushbots:pushbots-lib:+@aar'
     compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.github.nisrulz:screenshott:1.1.0'
 }

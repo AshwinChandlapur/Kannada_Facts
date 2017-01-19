@@ -264,7 +264,7 @@ public class facts {
             "The first Kannada serial 'Sihikahi' (meaning bittersweet in Kannada) was produced and directed by H N K Murthy." ,
             "Mysore Medical College & Research Institute, Mysore is the first Medical college in the state and seventh in India" ,
             "India's first electric locos (Trains), however, had already made their appearance on the Indian soil much earlier. They were delivered to the Mysore Gold Fields by Bagnalls (Stafford) with overhead electrical equipment by Siemens as early as 1910." ,
-            "Bangalore's Namma Metro is the 3rd metropolitian city to get metro after kolkata an delhi." ,
+            "Bangalore's Namma Metro is the 3rd metropolitian city to get metro after kolkata and delhi." ,
 };
     int i =0;
 
