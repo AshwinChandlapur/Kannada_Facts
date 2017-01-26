@@ -1,6 +1,8 @@
 package com.vadeworks.kannadafacts;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -30,6 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Random;
 import java.util.Timer;
 
 public class MainActivitykan extends AppCompatActivity {
@@ -39,6 +42,15 @@ public class MainActivitykan extends AppCompatActivity {
     backgrounds backgroundcolor=new backgrounds();
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
+
+
+    //initiate cursor and point to null
+    Cursor c=null;
+
+    //to get db length
+    int db_length;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +62,33 @@ public class MainActivitykan extends AppCompatActivity {
         fact=(TextView)findViewById(R.id.fact);
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");
         fact.setTypeface(myFont);
+
+
+
+        //create a DBhelper instance to get cursor
+        DatabaseHelper myDbHelper = new DatabaseHelper(MainActivitykan.this);
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+        try {
+            myDbHelper.openDataBase();
+        } catch (SQLException sqle) {
+            throw sqle;
+        }
+
+        //put cursor in allfacts table of facts db
+        c = myDbHelper.query("allfacts", null, null, null, null, null, null);
+
+        //1st row of allfacts table
+        c.moveToFirst();
+
+        //gettotal no of rows in table
+        db_length=c.getCount();
+
+
+
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -68,7 +107,7 @@ public class MainActivitykan extends AppCompatActivity {
 
             @Override
             public void onSwipeRight() {
-                prev();
+                next();
                 //super.onSwipeRight();
             }
 
@@ -80,7 +119,7 @@ public class MainActivitykan extends AppCompatActivity {
 
             @Override
             public void onSwipeBottom() {
-                prev();
+                next();
                 //super.onSwipeBottom();
             }
 
@@ -90,13 +129,19 @@ public class MainActivitykan extends AppCompatActivity {
             }
         });
     }
-    private void prev() {
-        fact.setText(factholder.prevfact());
-        background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
-    }
 
     private void next() {
-        fact.setText(factholder.nextfact());
+//      get randnum to point to a random row
+        int c_row=randnum();
+
+//        Toast.makeText(MainActivity.this, "The rand num :" +  c_row, Toast.LENGTH_SHORT).show();
+
+//      point to rand row
+        c.moveToPosition(c_row);
+
+
+//      set fact textview
+        fact.setText("#fact: " + c.getString(0) + "\n" + "Knfact: " + c.getString(2) + "\n");
         background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
     }
 
@@ -127,6 +172,13 @@ public class MainActivitykan extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public int randnum()
+    {
+        Random r = new Random();
+        int Result = r.nextInt(db_length);
+        return Result;
+    }
 
 
 }
