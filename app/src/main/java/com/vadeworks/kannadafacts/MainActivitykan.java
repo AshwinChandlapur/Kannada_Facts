@@ -38,7 +38,6 @@ import java.util.Timer;
 public class MainActivitykan extends AppCompatActivity {
     TextView fact;
     RelativeLayout background;
-    kannadafacts factholder=new kannadafacts();
     backgrounds backgroundcolor=new backgrounds();
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
@@ -141,7 +140,8 @@ public class MainActivitykan extends AppCompatActivity {
 
 
 //      set fact textview
-        fact.setText("#fact: " + c.getString(0) + "\n" + "Knfact: " + c.getString(2) + "\n");
+//       use c.getString(COL) method to get ids if required
+        fact.setText(c.getString(2));
         background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
     }
 
@@ -176,8 +176,7 @@ public class MainActivitykan extends AppCompatActivity {
     public int randnum()
     {
         Random r = new Random();
-        int Result = r.nextInt(db_length);
-        return Result;
+        return r.nextInt(db_length);
     }
 
 

@@ -39,7 +39,6 @@ import java.util.Timer;
 public class MainActivity extends AppCompatActivity {
     TextView fact;
     RelativeLayout background;
-    facts factholder=new facts();
     backgrounds backgroundcolor=new backgrounds();
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
@@ -139,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
 //      point to rand row
         c.moveToPosition(c_row);
 //      set fact text view
-        fact.setText("#fact: " + c.getString(0) + "\n" + "Enfact: " + c.getString(1) + "\n");
+//      use c.getString(COL) method to get ids if required
+        fact.setText(c.getString(1));
         background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
     }
 
@@ -176,8 +176,7 @@ public class MainActivity extends AppCompatActivity {
     public int randnum()
     {
         Random r = new Random();
-        int Result = r.nextInt(db_length);
-        return Result;
+        return r.nextInt(db_length+1);
     }
 
 }
