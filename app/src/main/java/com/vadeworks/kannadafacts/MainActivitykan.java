@@ -23,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
@@ -172,11 +173,11 @@ public class MainActivitykan extends AppCompatActivity {
 
         randindex++;
         if(randindex==5) randindex=randindex-5;
-//        Toast.makeText(MainActivity.this, "The rand num :" +  c_row, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivitykan.this, "The rand num :" +  c.getString(3), Toast.LENGTH_SHORT).show();
 
 //      point to rand row
         c.moveToPosition(c_row);
-
+//        Toast.makeText(MainActivitykan.this, "The url:" + c_row + "\n" +  c.getString(1) + "\n" + c.getString(3), Toast.LENGTH_SHORT).show();
 
 //      set fact textview
 //       use c.getString(COL) method to get ids if required
@@ -188,7 +189,7 @@ public class MainActivitykan extends AppCompatActivity {
         ivinst=(ImageView)findViewById(R.id.hideme);
 
         Glide.with(this.getApplicationContext())
-                .load(imgs[randindex])
+                .load(c.getString(3))
                 .placeholder(R.drawable.mybg)
                 .into(ivinst);
 

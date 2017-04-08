@@ -17,6 +17,31 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:id="@+id/heading"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/onlineimgView"
+        android:layout_below="@+id/heading"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:paddingTop="7dp"
+        android:minWidth="700dp"
+        android:minHeight="180dp"
+        android:maxWidth="700dp"
+        android:maxHeight="180dp"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/onlineimgView"
+        android:layout_above="@+id/feedback"
+        android:layout_centerHorizontal="true">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
     <TextView
         android:text="message"
         android:layout_width="wrap_content"
@@ -24,9 +49,10 @@
         android:id="@+id/message"
         android:textAlignment="center"
         android:textSize="15sp"
-        android:layout_below="@+id/heading"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="47dp" />
+    </LinearLayout>
+    </ScrollView>
 
     <ru.katso.livebutton.LiveButton
         xmlns:livebutton="http://schemas.android.com/apk/res-auto"

@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bumptech.glide.Glide;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -106,7 +107,7 @@ public class NotifHandler extends AppCompatActivity {
 
         // extras.getString("imgUrl");
         if (null != extras && getIntent().getExtras().containsKey("message") || getIntent().getExtras().containsKey("imgUrl")
-                ||getIntent().getExtras().containsKey("bigText")
+                ||getIntent().getExtras().containsKey("bigText") || getIntent().getExtras().containsKey("myTitle")
                 ) {
             TextView message = (TextView) findViewById(R.id.message);
             message.setTypeface(myFont);
@@ -114,6 +115,10 @@ public class NotifHandler extends AppCompatActivity {
             // ImageView imgView=(ImageView)findViewById(R.id.imgView);
             message.setText(extras.getString("bigText"));
 
+            heading.setText(extras.getString("myTitle"));
+            ImageView imgView=(ImageView)findViewById(R.id.onlineimgView);
+            String sr= extras.getString("imgUrl");
+            Glide.with(this).load(sr).into(imgView);
             //imgUrl.setText(extras.getString("imgUrl"));
             // Picasso.with(this).load(String.valueOf(imgUrl)).into(imgView);}
         }

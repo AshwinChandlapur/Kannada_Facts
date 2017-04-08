@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         ivinstance=(ImageView)findViewById(R.id.hideme);
 
         Glide.with(this.getApplicationContext())
-                .load(imgs[randindex])
+                .load(c.getString(3))
                 .placeholder(R.drawable.mybg)
                 .into(ivinstance);
 
