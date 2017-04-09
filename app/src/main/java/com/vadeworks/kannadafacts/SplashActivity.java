@@ -28,25 +28,36 @@ package com.vadeworks.kannadafacts;
 
         import com.afollestad.materialdialogs.DialogAction;
         import com.afollestad.materialdialogs.MaterialDialog;
+
         import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
         import com.google.android.gms.ads.AdListener;
         import com.google.android.gms.ads.AdRequest;
         import com.google.android.gms.ads.InterstitialAd;
+        import com.google.firebase.analytics.FirebaseAnalytics;
         import com.pushbots.push.Pushbots;
         import com.ramotion.foldingcell.FoldingCell;
         import com.vadeworks.kannadafacts.R;
         import com.vadeworks.kannadafacts.KenBurnsView;
+
         import java.util.Random;
 
-        import github.nisrulz.screenshott.ScreenShott;
+
+
+        import java.util.Random;
+
+
 
 
 public class SplashActivity extends Activity {
 
+    String once ="once";
+
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 20000000;
     private KenBurnsView mKenBurns;
-
+    private View mhistory;
+    private boolean isRevealEnabled = true;
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +67,11 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         setAnimation();// Logo and Sirigannadam gelge animation setter
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+       // mhistory =(View) findViewById(R.id.history);
        Pushbots.sharedInstance().init(this);
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
        mKenBurns = (KenBurnsView) findViewById(R.id.ken_burns_images);
        // mKenBurns.setImageResource(R.drawable.splash_background2);
@@ -82,6 +97,10 @@ public class SplashActivity extends Activity {
 
 
       final FoldingCell fc = (FoldingCell) findViewById(R.id.folding_cell);
+
+
+
+
 
         ImageView foldimage=(ImageView)findViewById(R.id.open);
        // foldimage.setImageResource(R.drawable.bidar3);
@@ -224,5 +243,7 @@ public class SplashActivity extends Activity {
         startActivity(startMain);
 
     }
+
+
 
 }

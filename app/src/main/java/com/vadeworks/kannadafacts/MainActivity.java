@@ -1,10 +1,13 @@
 package com.vadeworks.kannadafacts;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -182,17 +185,31 @@ public class MainActivity extends AppCompatActivity {
 
         ivinstance=(ImageView)findViewById(R.id.hideme);
 
-        Glide.with(this.getApplicationContext())
-                .load(c.getString(3))
-                .placeholder(R.drawable.mybg)
-                .into(ivinstance);
 
 
-        Glide.with(this.getApplicationContext())
-                .load(imgs[randindex+1])
-                .preload();
 
-        background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+            Glide.with(this.getApplicationContext())
+                    .load(c.getString(3))
+                    .placeholder(R.drawable.mybg)
+                    .into(ivinstance);
+
+
+            Glide.with(this.getApplicationContext())
+                    .load(imgs[randindex+1])
+                    .preload();
+
+        }
+        else {
+            connected = false;
+            background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
+        }
+
     }
 
     @Override
