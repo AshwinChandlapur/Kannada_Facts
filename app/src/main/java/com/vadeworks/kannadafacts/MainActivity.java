@@ -26,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
@@ -59,11 +60,16 @@ public class MainActivity extends AppCompatActivity {
     };
 
     //img view and ImageButton instances
-    ImageView ivinstance;
+    ImageView ivinstance, ivbackinstance;
     ImageButton share_eng_fact;
 
     //initiate cursor and point to null
     Cursor c=null;
+    Cursor csec=null;
+
+    int n_row=randnum();
+    int c_row=randnum();
+
 
     //to get db length
     int db_length;
@@ -99,9 +105,10 @@ public class MainActivity extends AppCompatActivity {
 
         //put cursor in allfacts table of facts db
         c = myDbHelper.query("allfacts", null, null, null, null, null, null);
+        csec = myDbHelper.query("allfacts", null, null, null, null, null, null);
 
         //1st row of allfacts table
-        c.moveToFirst();
+//        c.moveToFirst();
 
         //gettotal no of rows in table
         db_length=c.getCount();
@@ -169,21 +176,28 @@ public class MainActivity extends AppCompatActivity {
 //      set share button visibility to visible onSwipe call
         share_eng_fact.setVisibility(View.VISIBLE);
 //      get randnum to point to a random row
-        int c_row=randnum();
 
-        randindex++;
+
+
+//        randindex++;
 
 
 //        toast to debug
+//        Toast.makeText(MainActivity.this, "c_row :" +  c_row + "\nn_row" + n_row, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(MainActivitykan.this, "The rand num :" +  c_row + ": img-" + randindex, Toast.LENGTH_SHORT).show();
-        if(randindex==5) randindex=randindex-5;
+
+//        if(randindex==5) randindex=randindex-5;
 //      point to rand row
         c.moveToPosition(c_row);
+        csec.moveToPosition(n_row);
 //      set fact text view
 //      use c.getString(COL) method to get ids if required
         fact.setText(c.getString(1));
 
         ivinstance=(ImageView)findViewById(R.id.hideme);
+        ivbackinstance=(ImageView)findViewById(R.id.backdrop);
+        c_row=n_row;
+        n_row=randnum();
 
 
 
@@ -201,8 +215,9 @@ public class MainActivity extends AppCompatActivity {
 
 
             Glide.with(this.getApplicationContext())
-                    .load(imgs[randindex+1])
-                    .preload();
+                    .load(csec.getString(3))
+                    .placeholder(R.drawable.mybg)
+                    .into(ivbackinstance);
 
         }
         else {

@@ -62,12 +62,17 @@ public class MainActivitykan extends AppCompatActivity {
 
     //initiate cursor and point to null
     Cursor c=null;
+    Cursor csec=null;
+
+
+    int n_row=randnum();
+    int c_row=randnum();
 
     //to get db length
     int db_length;
 
     //img view and ImageButton instances
-    ImageView ivinst;
+    ImageView ivinst, ivbackinstance;
     ImageButton share_kan_fact;
 
     @Override
@@ -99,9 +104,10 @@ public class MainActivitykan extends AppCompatActivity {
 
         //put cursor in allfacts table of facts db
         c = myDbHelper.query("allfacts", null, null, null, null, null, null);
+        csec = myDbHelper.query("allfacts", null, null, null, null, null, null);
 
         //1st row of allfacts table
-        c.moveToFirst();
+//        c.moveToFirst();
 
         //gettotal no of rows in table
         db_length=c.getCount();
@@ -172,14 +178,16 @@ public class MainActivitykan extends AppCompatActivity {
         share_kan_fact.setVisibility(View.VISIBLE);
 
 //      get randnum to point to a random row
-        int c_row=randnum();
+//        int c_row=randnum();
 
-        randindex++;
-        if(randindex==5) randindex=randindex-5;
+//        randindex++;
+//        if(randindex==5) randindex=randindex-5;
 //        Toast.makeText(MainActivitykan.this, "The rand num :" +  c.getString(3), Toast.LENGTH_SHORT).show();
 
 //      point to rand row
         c.moveToPosition(c_row);
+        csec.moveToPosition(n_row);
+//        Toast.makeText(MainActivitykan.this, "fact:" + c_row , Toast.LENGTH_SHORT).show();
 //        Toast.makeText(MainActivitykan.this, "The url:" + c_row + "\n" +  c.getString(1) + "\n" + c.getString(3), Toast.LENGTH_SHORT).show();
 
 //      set fact textview
@@ -190,6 +198,9 @@ public class MainActivitykan extends AppCompatActivity {
 
 
         ivinst=(ImageView)findViewById(R.id.hideme);
+        ivbackinstance=(ImageView)findViewById(R.id.backdrop);
+        c_row=n_row;
+        n_row=randnum();
 
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -205,8 +216,9 @@ public class MainActivitykan extends AppCompatActivity {
 
 
             Glide.with(this.getApplicationContext())
-                    .load(imgs[randindex+1])
-                    .preload();
+                    .load(csec.getString(3))
+                    .placeholder(R.drawable.mybg)
+                    .into(ivbackinstance);
         }
         else{
             connected = false;
@@ -251,7 +263,7 @@ public class MainActivitykan extends AppCompatActivity {
     public int randnum()
     {
         Random r = new Random();
-        return r.nextInt(db_length);
+        return r.nextInt(db_length+1);
     }
 
 
