@@ -52,14 +52,6 @@ public class MainActivitykan extends AppCompatActivity {
     int randindex=0;
 
 
-    String[] imgs={"http://i.dailymail.co.uk/i/pix/2010/04/28/article-0-02211C5F000004B0-464_306x423.jpg",
-            "https://s-media-cache-ak0.pinimg.com/564x/fe/07/f2/fe07f2d2d179cd55f5b51a0b8fab8e8b.jpg",
-            "https://flipsideflorida.files.wordpress.com/2015/04/pablo-picasso-buste-de-femme-1.jpg",
-            "https://s-media-cache-ak0.pinimg.com/originals/25/77/2e/25772e16e5fd0620c82ec86356998b60.jpg",
-            "http://corioblog.com/picasso_matador.jpg",
-            "http://i.imgur.com/DvpvklR.png"
-    };
-
     //initiate cursor and point to null
     Cursor c=null;
     Cursor csec=null;

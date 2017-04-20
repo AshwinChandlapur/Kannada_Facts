@@ -1,5 +1,7 @@
 package com.vadeworks.kannadafacts;
 
+        import android.accounts.Account;
+        import android.accounts.AccountManager;
         import android.animation.AnimatorSet;
         import android.animation.ObjectAnimator;
         import android.app.Activity;
@@ -7,15 +9,18 @@ package com.vadeworks.kannadafacts;
         import android.app.PendingIntent;
         import android.content.Context;
         import android.content.Intent;
+        import android.content.pm.PackageManager;
         import android.graphics.Bitmap;
         import android.graphics.Color;
         import android.media.Image;
         import android.net.Uri;
         import android.os.Bundle;
         import android.os.Handler;
+        import android.support.v4.app.ActivityCompat;
         import android.support.v4.app.NotificationCompat;
         import android.support.v4.app.TaskStackBuilder;
         import android.support.v4.view.animation.FastOutSlowInInterpolator;
+        import android.util.Patterns;
         import android.view.MotionEvent;
         import android.view.View;
         import android.view.WindowManager;
@@ -44,8 +49,7 @@ package com.vadeworks.kannadafacts;
 
 
         import java.util.Random;
-
-
+        import java.util.regex.Pattern;
 
 
 public class SplashActivity extends Activity {
@@ -65,7 +69,8 @@ public class SplashActivity extends Activity {
         //AB.hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        setAnimation();// Logo and Sirigannadam gelge animation setter
+        setAnimation();
+        // Logo and Sirigannadam gelge animation setter
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
        // mhistory =(View) findViewById(R.id.history);
        Pushbots.sharedInstance().init(this);
@@ -172,6 +177,7 @@ public class SplashActivity extends Activity {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"+",nikhilnagaraju96@gmail.com"));
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Suggestion about "+ getString(R.string.app_name));
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -197,6 +203,7 @@ public class SplashActivity extends Activity {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"+",nikhilnagaraju96@gmail.com"));
+                        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
                         startActivity(intent);
                     }
                 })

@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "883891551843",
-    "firebase_url": "https://kannada-facts-39c8f.firebaseio.com",
-    "project_id": "kannada-facts-39c8f",
-    "storage_bucket": "kannada-facts-39c8f.appspot.com"
+    "project_number": "151755537140",
+    "firebase_url": "https://kan-facts.firebaseio.com",
+    "project_id": "kan-facts",
+    "storage_bucket": "kan-facts.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:883891551843:android:9a2a02c5e29d1b32",
+        "mobilesdk_app_id": "1:151755537140:android:9a2a02c5e29d1b32",
         "android_client_info": {
           "package_name": "com.vadeworks.kannadafacts"
         }
       },
       "oauth_client": [
         {
-          "client_id": "883891551843-hspi0fu77esd5drnfrm5mdr7t6vq7qen.apps.googleusercontent.com",
+          "client_id": "151755537140-3e6m6b6lcvtbrrfduitfovm5j6mapv0t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDXaqbBN6RE8BpFVI8xkwC7h_ygPN_yol8"
+          "current_key": "AIzaSyBU3XIsrxl07vAhepq9IaILZdRG1ysbny4"
         }
       ],
       "services": {
