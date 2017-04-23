@@ -56,16 +56,16 @@ public class MainActivitykan extends AppCompatActivity {
     Cursor c=null;
     Cursor csec=null;
 
-
-    int n_row=randnum();
-    int c_row=randnum();
-
     //to get db length
     int db_length;
+
+    int n_row;
+    int c_row;
 
     //img view and ImageButton instances
     ImageView ivinst, ivbackinstance;
     ImageButton share_kan_fact;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +103,9 @@ public class MainActivitykan extends AppCompatActivity {
 
         //gettotal no of rows in table
         db_length=c.getCount();
+
+        c_row=randnum();
+        n_row=randnum();
 
 //Get share button and set onclick listener
         share_kan_fact =(ImageButton)findViewById(R.id.kan_fact);
@@ -252,7 +255,7 @@ public class MainActivitykan extends AppCompatActivity {
     }
 
 
-    public int randnum()
+    public  int randnum()
     {
         Random r = new Random();
         return r.nextInt(db_length+1);
