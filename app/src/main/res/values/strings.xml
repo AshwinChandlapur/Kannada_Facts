@@ -3,4 +3,5 @@
     <string name="admob_interstitial_id">ca-app-pub-1924436259631090/8770872369</string>
     <string name="banner_ad_unit_id">ca-app-pub-1924436259631090/4406221561</string>
     <string name="app_id">ca-app-pub-1924436259631090~7294139167</string>
+    <string name="title_activity_one_signal">OneSignal</string>
 </resources>
