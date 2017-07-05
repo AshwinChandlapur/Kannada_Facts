@@ -33,7 +33,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.pushbots.push.Pushbots;
+//import com.pushbots.push.Pushbots;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         AB.hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        Pushbots.sharedInstance().init(this);
+//        Pushbots.sharedInstance().init(this);
         //Font Setting for Facts
         fact=(TextView)findViewById(R.id.fact);
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");

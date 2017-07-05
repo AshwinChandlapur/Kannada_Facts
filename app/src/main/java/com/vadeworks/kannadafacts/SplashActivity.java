@@ -34,12 +34,13 @@ package com.vadeworks.kannadafacts;
         import com.afollestad.materialdialogs.DialogAction;
         import com.afollestad.materialdialogs.MaterialDialog;
 
+        import com.github.florent37.viewtooltip.ViewTooltip;
         import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
         import com.google.android.gms.ads.AdListener;
         import com.google.android.gms.ads.AdRequest;
         import com.google.android.gms.ads.InterstitialAd;
         import com.google.firebase.analytics.FirebaseAnalytics;
-        import com.pushbots.push.Pushbots;
+//        import com.pushbots.push.Pushbots;
         import com.ramotion.foldingcell.FoldingCell;
         import com.vadeworks.kannadafacts.R;
         import com.vadeworks.kannadafacts.KenBurnsView;
@@ -73,7 +74,7 @@ public class SplashActivity extends Activity {
         // Logo and Sirigannadam gelge animation setter
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
        // mhistory =(View) findViewById(R.id.history);
-       Pushbots.sharedInstance().init(this);
+//       Pushbots.sharedInstance().init(this);
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -104,6 +105,9 @@ public class SplashActivity extends Activity {
       final FoldingCell fc = (FoldingCell) findViewById(R.id.folding_cell);
 
 
+//        create tooltip & point to history button
+        ImageView history = (ImageView)findViewById(R.id.history);
+        ViewTooltip.on(history).autoHide(true, 2000 ).corner(10).position(ViewTooltip.Position.BOTTOM).text("Click Here").show();
 
 
 
