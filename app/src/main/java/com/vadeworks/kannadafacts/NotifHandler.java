@@ -25,6 +25,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 
+//TODO unnecessary code no need of this file
 
 public class NotifHandler extends AppCompatActivity {
 

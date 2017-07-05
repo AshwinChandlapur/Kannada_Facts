@@ -270,7 +270,7 @@ public class kannadafacts {
 
     };
 
-
+//TODO unable to remove this fileas it recognizes as internal project file
 
     int i =0;
 
