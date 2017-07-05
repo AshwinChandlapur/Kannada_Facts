@@ -3,15 +3,15 @@
     package="com.vadeworks.kannadafacts">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <permission android:name="com.vadeworks.kannadafacts.permission.C2D_MESSAGE"
+    <permission
+        android:name="com.vadeworks.kannadafacts.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.vadeworks.kannadafacts.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
 
     <application
         android:allowBackup="true"
@@ -27,9 +27,9 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="com.test.blankproject.MESSAGE" />
 
@@ -44,21 +44,24 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.vadeworks.kannadafacts" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.pushbots.push.DefaultPushHandler" />
-        <service android:name="com.pushbots.push.GCMIntentService" />
+        <!-- <receiver -->
+        <!-- android:name="com.pushbots.google.gcm.GCMBroadcastReceiver" -->
+        <!-- android:permission="com.google.android.c2dm.permission.SEND" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+        <!-- <action android:name="com.google.android.c2dm.intent.REGISTRATION" /> -->
+        <!-- <category android:name="com.vadeworks.kannadafacts" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!-- <receiver android:name="com.pushbots.push.DefaultPushHandler" /> -->
+        <!-- <service android:name="com.pushbots.push.GCMIntentService" /> -->
 
         <activity android:name=".NotifHandler" />
-        <activity android:name=".MainActivitykan"></activity>
+        <activity android:name=".MainActivitykan" />
+        <activity
+            android:name=".OneSignal"
+            android:label="@string/title_activity_one_signal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 
 </manifest>
