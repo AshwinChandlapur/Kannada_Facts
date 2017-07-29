@@ -102,27 +102,27 @@ public class SplashActivity extends Activity {
 
 
 
-      final FoldingCell fc = (FoldingCell) findViewById(R.id.folding_cell);
-
-
-//        create tooltip & point to history button
-        ImageView history = (ImageView)findViewById(R.id.history);
-        ViewTooltip.on(history).autoHide(true, 2000 ).corner(10).position(ViewTooltip.Position.BOTTOM).text("Click Here").show();
-
-
-
-        ImageView foldimage=(ImageView)findViewById(R.id.open);
-       // foldimage.setImageResource(R.drawable.bidar3);
-        int[] idss=new int[]{R.drawable.yakshagana3,R.drawable.golgumbaz3,R.drawable.bidar3,R.drawable.hampi3};
-        Random randomgeneratora=new Random();
-        int rs=randomgeneratora.nextInt(idss.length);
-        foldimage.setImageDrawable(getResources().getDrawable(idss[rs]));
-        fc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fc.toggle(false);
-            }
-        });
+//      final FoldingCell fc = (FoldingCell) findViewById(R.id.folding_cell);
+//
+//
+////        create tooltip & point to history button
+//        ImageView history = (ImageView)findViewById(R.id.history);
+//        ViewTooltip.on(history).autoHide(true, 2000 ).corner(10).position(ViewTooltip.Position.BOTTOM).text("Click Here").show();
+//
+//
+//
+//        ImageView foldimage=(ImageView)findViewById(R.id.open);
+//       // foldimage.setImageResource(R.drawable.bidar3);
+//        int[] idss=new int[]{R.drawable.yakshagana3,R.drawable.golgumbaz3,R.drawable.bidar3,R.drawable.hampi3};
+//        Random randomgeneratora=new Random();
+//        int rs=randomgeneratora.nextInt(idss.length);
+//        foldimage.setImageDrawable(getResources().getDrawable(idss[rs]));
+//        fc.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                fc.toggle(false);
+//            }
+//        });
 
         //Read History Facts Button
        Button historyfacts=(Button)findViewById(R.id.readhistorynow);

@@ -33,117 +33,49 @@
          android:text="ಸಿರಿಗನ್ನಡಂ ಗೆಲ್ಗೆ, ಸಿರಿಗನ್ನಡಂ ಬಾಳ್ಗೆ"
          android:textColor="#ffffff" />
 
-  <com.ramotion.foldingcell.FoldingCell
-         xmlns:android="http://schemas.android.com/apk/res/android"
-         android:id="@+id/folding_cell"
-         android:layout_width="480px"
-         android:layout_marginLeft="110px"
-         android:gravity="center"
-         android:layout_height="wrap_content"
-         android:clipChildren="false"
-         android:clipToPadding="true"
-         android:layout_marginTop="185dp"
-         android:layout_centerHorizontal="true"
-         folding-cell:animationDuration="1750"
-         folding-cell:backSideColor="#FFF9C4"
-         folding-cell:additionalFlipsCount="4"
-         >
+    <ru.katso.livebutton.LiveButton
+        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+        android:layout_height="40dp"
+        android:layout_width="200dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="ಕನ್ನಡದಲ್ಲಿ ಓದಿ"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="quicksand"
+        android:textSize="20sp"
+        android:id="@+id/readkannada"
+        livebutton:corners="4dp"
+        livebutton:normalHeight="4dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:backgroundColor="#8BC34A"
+        livebutton:shadowColor="#4CAF50"/>
 
-         <FrameLayout
-             android:id="@+id/cell_content_view"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:background="@android:color/transparent"
-             android:visibility="gone"
-             >
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:orientation="vertical">
-
-                 <ImageView
-                     android:layout_width="500px"
-                     android:layout_gravity="center"
-                     android:layout_height="wrap_content"
-                     android:src="@drawable/yakshagana3"
-                     android:id="@+id/open"
-                     android:gravity="center"
-                     />
-            <!--    <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Karnataka beauty."
-                     android:gravity="center"/>-->
-
-                 <ru.katso.livebutton.LiveButton
-                     xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-                     android:layout_height="match_parent"
-                     android:layout_width="match_parent"
-                     android:gravity="center"
-                     android:text="ಕನ್ನಡದಲ್ಲಿ ಓದಿ"
-                     android:textColor="#ffffff"
-                     android:textStyle="bold"
-                     android:paddingTop="7dp"
-                     android:paddingBottom="7dp"
-                     android:layout_marginTop="13dp"
-                     android:fontFamily="quicksand"
-                     android:textSize="20sp"
-                     android:id="@+id/readkannada"
-                     livebutton:corners="4dp"
-                     livebutton:normalHeight="4dp"
-                     livebutton:pressedHeight="2dp"
-                     livebutton:backgroundColor="#8BC34A"
-                     livebutton:shadowColor="#4CAF50"/>
-
-                 <ru.katso.livebutton.LiveButton
-                     xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-                     android:layout_height="match_parent"
-                     android:layout_width="match_parent"
-                     android:gravity="center"
-                     android:text="Read in English"
-                     android:textColor="#ffffff"
-                     android:textStyle="bold"
-                     android:layout_marginTop="20dp"
-                     android:paddingTop="7dp"
-                     android:paddingBottom="7dp"
-                     android:fontFamily="sans-serif"
-                     android:textSize="20sp"
-                     android:id="@+id/readhistorynow"
-                     livebutton:corners="4dp"
-                     livebutton:normalHeight="4dp"
-                     livebutton:pressedHeight="2dp"
-                     livebutton:backgroundColor="#3498db"
-                     livebutton:shadowColor="#2980b9"/>
-
-
-             </LinearLayout>
-         </FrameLayout>
-         ​
-         <FrameLayout
-             android:id="@+id/cell_title_view"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             >
-
-             <ImageView
-                 android:layout_width="500px"
-                 android:layout_height="wrap_content"
-                 android:src="@drawable/facto2"
-                 android:id="@+id/history"
-                 android:layout_gravity="center"
-                 android:background="@drawable/editborder"
-                 />
-             <ImageView
-                 android:layout_width="0dp"
-                 android:layout_height="0dp"
-                 android:src="@drawable/share"
-                 android:id="@+id/trial"
-                 android:layout_below="@+id/history"
-                 android:visibility="invisible"
-                 android:layout_gravity="center"/>
-
-         </FrameLayout>
-     </com.ramotion.foldingcell.FoldingCell>
+    <ru.katso.livebutton.LiveButton
+        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+        android:layout_height="40dp"
+        android:layout_width="200dp"
+        android:gravity="center"
+        android:text="Read in English"
+        android:layout_below="@+id/readkannada"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:id="@+id/readhistorynow"
+        livebutton:corners="4dp"
+        livebutton:normalHeight="4dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:backgroundColor="#3498db"
+        livebutton:shadowColor="#2980b9"/>
 
      <ImageButton
          android:layout_width="wrap_content"
