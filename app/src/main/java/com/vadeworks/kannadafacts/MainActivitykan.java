@@ -4,29 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.CountDownTimer;
-import android.os.Environment;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
@@ -34,13 +24,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Random;
-import java.util.Timer;
 
 public class MainActivitykan extends AppCompatActivity {
     TextView fact;
@@ -206,13 +191,13 @@ public class MainActivitykan extends AppCompatActivity {
 
             Glide.with(this.getApplicationContext())
                     .load(c.getString(3))
-                    .placeholder(R.drawable.mybg)
+//                    .placeholder(R.drawable.mybg)
                     .into(ivinst);
 
 
             Glide.with(this.getApplicationContext())
                     .load(csec.getString(3))
-                    .placeholder(R.drawable.mybg)
+//                    .placeholder(R.drawable.mybg)
                     .into(ivbackinstance);
         }
         else{

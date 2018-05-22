@@ -1,9 +1,8 @@
 package com.vadeworks.kannadafacts;
 
 
-
-        import android.graphics.RectF;
-        import android.view.animation.Interpolator;
+import android.graphics.RectF;
+import android.view.animation.Interpolator;
 
 public class Transition {
 

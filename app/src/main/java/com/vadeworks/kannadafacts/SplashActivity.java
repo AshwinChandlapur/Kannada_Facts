@@ -1,56 +1,26 @@
 package com.vadeworks.kannadafacts;
 
-        import android.accounts.Account;
-        import android.accounts.AccountManager;
-        import android.animation.AnimatorSet;
-        import android.animation.ObjectAnimator;
-        import android.app.Activity;
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.graphics.Bitmap;
-        import android.graphics.Color;
-        import android.media.Image;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.os.Handler;
-        import android.support.v4.app.ActivityCompat;
-        import android.support.v4.app.NotificationCompat;
-        import android.support.v4.app.TaskStackBuilder;
-        import android.support.v4.view.animation.FastOutSlowInInterpolator;
-        import android.util.Patterns;
-        import android.view.MotionEvent;
-        import android.view.View;
-        import android.view.WindowManager;
-        import android.view.animation.AccelerateDecelerateInterpolator;
-        import android.view.animation.Animation;
-        import android.view.animation.AnimationUtils;
-        import android.widget.Button;
-        import android.widget.ImageButton;
-        import android.widget.ImageView;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageButton;
 
-        import com.afollestad.materialdialogs.DialogAction;
-        import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
-        import com.github.florent37.viewtooltip.ViewTooltip;
-        import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-        import com.google.android.gms.ads.AdListener;
-        import com.google.android.gms.ads.AdRequest;
-        import com.google.android.gms.ads.InterstitialAd;
-        import com.google.firebase.analytics.FirebaseAnalytics;
-//        import com.pushbots.push.Pushbots;
-        import com.ramotion.foldingcell.FoldingCell;
-        import com.vadeworks.kannadafacts.R;
-        import com.vadeworks.kannadafacts.KenBurnsView;
-
-        import java.util.Random;
-
-
-
-        import java.util.Random;
-        import java.util.regex.Pattern;
+import java.util.Random;
 
 
 public class SplashActivity extends Activity {

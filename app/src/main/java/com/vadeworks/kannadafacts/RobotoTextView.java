@@ -6,8 +6,6 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.vadeworks.kannadafacts.R;
-
 
 public class RobotoTextView extends TextView {
 

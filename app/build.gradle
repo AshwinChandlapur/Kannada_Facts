@@ -1,13 +1,25 @@
+plugins {
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin' version '0.8.1'
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+repositories {
+    maven { url 'https://maven.google.com' }
+    jcenter()
+}
+
+
+
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.vadeworks.kannadafacts"
-        minSdkVersion 17
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 8
         versionName "1.3"
         manifestPlaceholders = [onesignal_app_id: "9767c5e7-7df6-4f3e-b38a-01a3bfcb8918", onesignal_google_project_number: "356291776142"]
@@ -24,19 +36,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    //    compile 'com.pushbots:pushbots-lib:2.0.13@aar'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.ramotion.foldingcell:folding-cell:1.0.1'
-    compile 'com.github.dakatso:livebutton:1.0.0'
-    compile 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
-    compile 'com.google.firebase:firebase-ads:10.0.0'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.google.firebase:firebase-core:10.0.1'
-    compile 'com.onesignal:OneSignal:[3.5.3,4.0.0)'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.florent37:viewtooltip:1.0.6'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:support-v4:27.1.0'
+    implementation 'com.github.dakatso:livebutton:1.0.0'
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
+    implementation 'com.google.firebase:firebase-ads:15.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.google.firebase:firebase-core:15.0.0'
+    implementation 'com.onesignal:OneSignal:[3.5.3,4.0.0)'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'
