@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,12 +18,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.Random;
@@ -34,16 +37,8 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout background;
     backgrounds backgroundcolor=new backgrounds();
     InterstitialAd mInterstitialAd;
-    private InterstitialAd interstitial;
     int randindex=0;
 
-    String[] imgs={"http://i.dailymail.co.uk/i/pix/2010/04/28/article-0-02211C5F000004B0-464_306x423.jpg",
-            "https://s-media-cache-ak0.pinimg.com/564x/fe/07/f2/fe07f2d2d179cd55f5b51a0b8fab8e8b.jpg",
-            "https://flipsideflorida.files.wordpress.com/2015/04/pablo-picasso-buste-de-femme-1.jpg",
-            "https://s-media-cache-ak0.pinimg.com/originals/25/77/2e/25772e16e5fd0620c82ec86356998b60.jpg",
-            "http://corioblog.com/picasso_matador.jpg",
-            "http://i.imgur.com/DvpvklR.png"
-    };
 
     //img view and ImageButton instances
     ImageView ivinstance, ivbackinstance;
@@ -59,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     //to get db length
     int db_length;
+    int facts_read=0;
 
 
 
@@ -69,11 +65,14 @@ public class MainActivity extends AppCompatActivity {
         AB.hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-//        Pushbots.sharedInstance().init(this);
-        //Font Setting for Facts
+
         fact=(TextView)findViewById(R.id.fact);
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");
         fact.setTypeface(myFont);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1924436259631090/8770872369");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
         //create a DBhelper instance to get cursor
@@ -127,13 +126,13 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         background=(FrameLayout)findViewById(R.id.background);
-        background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
         background.setOnTouchListener(new OnSwipeTouchListener(this)
         {
             @Override
             public void onSwipeTop() {
                 // super.onSwipeTop();
                 next();
+
             }
 
             @Override
@@ -159,18 +158,27 @@ public class MainActivity extends AppCompatActivity {
                 return super.onTouch(v, event);
             }
         });
+
+
+
     }
 
     private void next() {
+
+        facts_read = facts_read+1;
+
+        if(facts_read==7){
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+        }
+
 //      set share button visibility to visible onSwipe call
         share_eng_fact.setVisibility(View.VISIBLE);
 //      get randnum to point to a random row
-
-
-
 //        randindex++;
-
-
 //        toast to debug
 //        Toast.makeText(MainActivity.this, "c_row :" +  c_row + "\nn_row" + n_row, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(MainActivitykan.this, "The rand num :" +  c_row + ": img-" + randindex, Toast.LENGTH_SHORT).show();
@@ -197,13 +205,18 @@ public class MainActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             //we are connected to a network
             connected = true;
-            Glide.with(this.getApplicationContext())
+
+            Picasso.with(this.getApplicationContext())
                     .load(c.getString(3))
+                    .fit()
+                    .centerCrop()
                     .into(ivinstance);
 
 
-            Glide.with(this.getApplicationContext())
+            Picasso.with(this.getApplicationContext())
                     .load(csec.getString(3))
+                    .fit()
+                    .centerCrop()
                     .into(ivbackinstance);
 
         }
@@ -216,28 +229,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                AdRequest adRequest = new AdRequest.Builder().build();
-                interstitial = new InterstitialAd(MainActivity.this);
-// Insert the Ad Unit ID
-                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-                interstitial.loadAd(adRequest);
-// Prepare an Interstitial Ad Listener
-                interstitial.setAdListener(new AdListener() {
-                    public void onAdLoaded() {
-// Call displayInterstitial() function
-                        if (interstitial.isLoaded()) {
-                            interstitial.show();
-                        }
-                    }
-                });
-            }
-        }, 2500);
-
         Intent intent=new Intent(MainActivity.this,SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

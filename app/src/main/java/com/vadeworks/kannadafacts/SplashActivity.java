@@ -33,6 +33,10 @@ public class SplashActivity extends Activity {
     private View mhistory;
     private boolean isRevealEnabled = true;
     private FirebaseAnalytics mFirebaseAnalytics;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +45,16 @@ public class SplashActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         setAnimation();
-        // Logo and Sirigannadam gelge animation setter
-        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-       // mhistory =(View) findViewById(R.id.history);
-//       Pushbots.sharedInstance().init(this);
-        // Obtain the FirebaseAnalytics instance.
+
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Parsers parsers = new Parsers();
+//                parsers.parseHeadline();
+//            }
+//        }).start();
 
 
        mKenBurns = (KenBurnsView) findViewById(R.id.ken_burns_images);
@@ -68,32 +76,6 @@ public class SplashActivity extends Activity {
        }, SPLASH_TIME_OUT);
 
 
-
-
-
-
-//      final FoldingCell fc = (FoldingCell) findViewById(R.id.folding_cell);
-//
-//
-////        create tooltip & point to history button
-//        ImageView history = (ImageView)findViewById(R.id.history);
-//        ViewTooltip.on(history).autoHide(true, 2000 ).corner(10).position(ViewTooltip.Position.BOTTOM).text("Click Here").show();
-//
-//
-//
-//        ImageView foldimage=(ImageView)findViewById(R.id.open);
-//       // foldimage.setImageResource(R.drawable.bidar3);
-//        int[] idss=new int[]{R.drawable.yakshagana3,R.drawable.golgumbaz3,R.drawable.bidar3,R.drawable.hampi3};
-//        Random randomgeneratora=new Random();
-//        int rs=randomgeneratora.nextInt(idss.length);
-//        foldimage.setImageDrawable(getResources().getDrawable(idss[rs]));
-//        fc.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                fc.toggle(false);
-//            }
-//        });
-
         //Read History Facts Button
        Button historyfacts=(Button)findViewById(R.id.readhistorynow);
        historyfacts.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +96,46 @@ public class SplashActivity extends Activity {
             }
         });
 
+        Button headlines = (Button)findViewById(R.id.headlines);
+        headlines.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), com.vadeworks.kannadafacts.Dindima.Category.Horizontal_Display_News.class);
+                intent.putExtra("id", "PJ_HEADLINES");
+                startActivity(intent);
+            }
+        });
+
+        Button sports = (Button)findViewById(R.id.sports);
+        sports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), com.vadeworks.kannadafacts.Dindima.Category.Horizontal_Display_News.class);
+                intent.putExtra("id", "PJ_SPORTS");
+                startActivity(intent);
+            }
+        });
+
+        Button cinema = (Button)findViewById(R.id.cinema);
+        cinema.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), com.vadeworks.kannadafacts.Dindima.Category.Horizontal_Display_News.class);
+                intent.putExtra("id", "PJ_CINEMA");
+                startActivity(intent);
+            }
+        });
+
+        Button business = (Button)findViewById(R.id.business);
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), com.vadeworks.kannadafacts.Dindima.Category.Horizontal_Display_News.class);
+                intent.putExtra("id", "PJ_BUSINESS");
+                startActivity(intent);
+            }
+        });
+
 
 
         ImageButton share=(ImageButton)findViewById(R.id.share);
@@ -129,12 +151,12 @@ public class SplashActivity extends Activity {
                 startActivity(sendIntent);
             }
         });
-        final MaterialStyledDialog dialogHeader_3 = new MaterialStyledDialog(this)
+        final MaterialStyledDialog dialogHeader_3 = new MaterialStyledDialog.Builder(this)
                 // .setHeaderDrawable(R.drawable.header)
                 .setHeaderColor(R.color.alizarin)
                 .setIcon(R.drawable.chat)
                 .withDialogAnimation(true)
-                .setTitle("Glad you liked\nKarnataka Facts♥")
+                .setTitle("Glad you liked\nKannada News & Facts♥")
                 .setDescription("Your 5 ★★★★★ Rating will help us serve you better.\nKeep supporting us :)")
                 .setPositive("Give us 5", new MaterialDialog.SingleButtonCallback() {
                     @Override
@@ -166,7 +188,7 @@ public class SplashActivity extends Activity {
             }
         });
 
-        final MaterialStyledDialog dialogHeader_4 = new MaterialStyledDialog(this)
+        final MaterialStyledDialog dialogHeader_4 = new MaterialStyledDialog.Builder(this)
                 // .setHeaderDrawable(R.drawable.header)
                 .setHeaderColor(R.color.alizarin)
                 .setIcon(R.drawable.logo1)
@@ -222,7 +244,6 @@ public class SplashActivity extends Activity {
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
-
     }
 
 

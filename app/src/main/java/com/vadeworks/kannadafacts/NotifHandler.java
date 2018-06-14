@@ -63,7 +63,7 @@ public class NotifHandler extends AppCompatActivity {
                 //Do something after 100ms
             }
         }, 6789);
-        final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
+        final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog.Builder(this)
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
                 .setTitle("Awesome!")

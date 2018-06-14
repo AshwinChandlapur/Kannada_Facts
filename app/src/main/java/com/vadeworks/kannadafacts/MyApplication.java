@@ -6,6 +6,7 @@ package com.vadeworks.kannadafacts;
 
 import android.app.Application;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import com.onesignal.OSNotification;
@@ -21,6 +22,8 @@ public class MyApplication extends Application {
         super.onCreate();
         //OneSignal.startInit(this).init();
         OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
                 .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
                 .init();
 
@@ -65,7 +68,6 @@ public class MyApplication extends Application {
     }
 
 
-
     private class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
         // This fires when a notification is opened by tapping on it.
         @Override
@@ -73,14 +75,14 @@ public class MyApplication extends Application {
             OSNotificationAction.ActionType actionType = result.action.type;
             //get JSON data object bundled with extra content such as bigText etc
             JSONObject data = result.notification.payload.additionalData;
-            String bigText;
+            String bigText,launchUrl;
             //extract bigPicture and body(heading) from notification obj
             String imgUrl=result.notification.payload.bigPicture;
             String heads= result.notification.payload.body;
 
             if (data != null) {
                 bigText = data.optString("bigText", null);
-//                imgUrl = data.optString("imgUrl",null);
+                launchUrl = data.optString("launchUrl",null);
                 if(bigText!=null && imgUrl!=null) {
                     Intent intent = new Intent(getApplicationContext(), oneSignal.class);
                     //set components for intent & send
@@ -94,6 +96,10 @@ public class MyApplication extends Application {
                     Log.i("OneSignalExample", "customkey set with value: " + bigText);
                 if (imgUrl != null)
                     Log.i("OneSignalExample", "customkey set with value: " + imgUrl);
+                if(launchUrl!=null){
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(launchUrl));
+                    startActivity(browserIntent);
+                }
                 data.remove(bigText);//This is mandatory, because the Old JSON data will still be stored that causes error while opening newest notification
                 data.remove(imgUrl);//
                 data.remove(heads);

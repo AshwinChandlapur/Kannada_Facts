@@ -1,27 +1,122 @@
 {
   "project_info": {
-    "project_number": "151755537140",
-    "firebase_url": "https://kan-facts.firebaseio.com",
-    "project_id": "kan-facts",
-    "storage_bucket": "kan-facts.appspot.com"
+    "project_number": "87009749424",
+    "firebase_url": "https://newsguru15022018.firebaseio.com",
+    "project_id": "newsguru15022018",
+    "storage_bucket": "newsguru15022018.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:151755537140:android:9a2a02c5e29d1b32",
+        "mobilesdk_app_id": "1:87009749424:android:9a2a02c5e29d1b32",
         "android_client_info": {
           "package_name": "com.vadeworks.kannadafacts"
         }
       },
       "oauth_client": [
         {
-          "client_id": "151755537140-3e6m6b6lcvtbrrfduitfovm5j6mapv0t.apps.googleusercontent.com",
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBU3XIsrxl07vAhepq9IaILZdRG1ysbny4"
+          "current_key": "AIzaSyBIJkqJ0qvg3QK64q0aMGeGJSxGU1J15fM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87009749424:android:e8a80a0efdbe7465",
+        "android_client_info": {
+          "package_name": "vadeworks.news.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87009749424-41nirdpfuv281h7raiqpravomcr6ncq4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vadeworks.news.admin",
+            "certificate_hash": "24bf4dd932d0446a903d56c1c827af6b984a28a6"
+          }
+        },
+        {
+          "client_id": "87009749424-liukursi88n667ag0k5fliqf9rbn0cr1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vadeworks.news.admin",
+            "certificate_hash": "413ca205e4c18b8dd696d4b67cd1daf006c8d23f"
+          }
+        },
+        {
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJkqJ0qvg3QK64q0aMGeGJSxGU1J15fM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87009749424:android:66fcdcad73d3edae",
+        "android_client_info": {
+          "package_name": "vadeworks.news.duniya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "87009749424-ikj7troris8gbsi68ttefcaqj2hl09o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJkqJ0qvg3QK64q0aMGeGJSxGU1J15fM"
         }
       ],
       "services": {

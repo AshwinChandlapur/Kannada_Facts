@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:background="#2e2e2e"
+    android:layout_height="match_parent">
+
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+    <com.udevel.widgetlab.TypingIndicatorView
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        app:animateFrequency="300"
+        app:animationOrder="lastOneFirst"
+        app:backgroundColor="#2e2e2e"
+        app:backgroundType="rounded"
+        app:dotAnimationDuration="600"
+        app:dotAnimationType="Sliding"
+        app:dotColor="#ffffff"
+        app:dotCount="7"
+        app:dotHorizontalSpacing="4dp"
+        app:dotMaxCompressRatio="70%"
+        app:dotSecondColor="#6ba4a4a4"
+        app:dotSize="8dp"
+        app:showBackground="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:id="@+id/loadingText"
+            android:text=" ಲೋಡಿಂಗ್, ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ..."
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

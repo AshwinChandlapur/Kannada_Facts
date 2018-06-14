@@ -26,28 +26,19 @@ public class oneSignal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_signal);
-
+        AdRequest adRequests = new AdRequest.Builder().build();
+        interstitial = new InterstitialAd(oneSignal.this);
+        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+        interstitial.loadAd(adRequests);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                //interstial ad space
-                AdRequest adRequests = new AdRequest.Builder().build();
-                // Prepare the Interstitial Ad
-                interstitial = new InterstitialAd(oneSignal.this);
-// Insert the Ad Unit ID
-                //TODO create 2 admob interstitial ids 1 for notif & 1 for main..... then insert notif id here
-                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-                interstitial.loadAd(adRequests);
-// Prepare an Interstitial Ad Listener
                 interstitial.setAdListener(new AdListener() {
                     public void onAdLoaded() {
-// Call displayInterstitial() function
                         displayInterstitial();
                     }
                 });
-//interstital finished
-                //Do something after 100ms
             }
         }, 4000);
         Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/quicksand.otf");
@@ -71,7 +62,7 @@ public class oneSignal extends AppCompatActivity {
         String imgUrl = intent.getExtras().getString("imgUrl");
         Glide.with(this).load(imgUrl).into(imageView);
 
-        final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
+        final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog.Builder(this)
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
                 .setTitle("Awesome!")
@@ -107,13 +98,6 @@ public class oneSignal extends AppCompatActivity {
                 dialogHeader_1.show();
             }
         });
-
-        // NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
-        //AdRequest request = new AdRequest.Builder()
-        //.addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
-        //       .build();
-        // adView.loadAd(request);
-
 
     }
 

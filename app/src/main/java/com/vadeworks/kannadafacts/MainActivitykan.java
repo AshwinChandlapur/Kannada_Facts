@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +24,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.Random;
@@ -50,6 +52,7 @@ public class MainActivitykan extends AppCompatActivity {
     //img view and ImageButton instances
     ImageView ivinst, ivbackinstance;
     ImageButton share_kan_fact;
+    int facts_read = 0;
 
 
     @Override
@@ -63,6 +66,10 @@ public class MainActivitykan extends AppCompatActivity {
         fact=(TextView)findViewById(R.id.fact);
         Typeface myFont = Typeface.createFromAsset(getAssets(),"fonts/quicksand.otf");
         fact.setTypeface(myFont);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1924436259631090/8770872369");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
 
@@ -118,7 +125,6 @@ public class MainActivitykan extends AppCompatActivity {
 
 
         background=(FrameLayout)findViewById(R.id.background);
-        background.setBackgroundColor(getResources().getColor(backgroundcolor.getBackground()));
         background.setOnTouchListener(new OnSwipeTouchListener(this)
         {
             @Override
@@ -153,6 +159,14 @@ public class MainActivitykan extends AppCompatActivity {
     }
 
     private void next() {
+        facts_read = facts_read+1;
+        if(facts_read==7){
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+        }
 
         //      set share button visibility to visible onSwipe call
         share_kan_fact.setVisibility(View.VISIBLE);
@@ -189,15 +203,17 @@ public class MainActivitykan extends AppCompatActivity {
             //we are connected to a network
             connected = true;
 
-            Glide.with(this.getApplicationContext())
+            Picasso.with(this.getApplicationContext())
                     .load(c.getString(3))
-//                    .placeholder(R.drawable.mybg)
+                    .fit()
+                    .centerCrop()
                     .into(ivinst);
 
 
-            Glide.with(this.getApplicationContext())
+            Picasso.with(this.getApplicationContext())
                     .load(csec.getString(3))
-//                    .placeholder(R.drawable.mybg)
+                    .fit()
+                    .centerCrop()
                     .into(ivbackinstance);
         }
         else{
@@ -214,26 +230,6 @@ public class MainActivitykan extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                AdRequest adRequest = new AdRequest.Builder().build();
-                interstitial = new InterstitialAd(MainActivitykan.this);
-// Insert the Ad Unit ID
-                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-                interstitial.loadAd(adRequest);
-// Prepare an Interstitial Ad Listener
-                interstitial.setAdListener(new AdListener() {
-                    public void onAdLoaded() {
-// Call displayInterstitial() function
-                        if (interstitial.isLoaded()) {
-                            interstitial.show();
-                        }
-                    }
-                });
-            }
-        }, 2500);
         Intent intent=new Intent(MainActivitykan.this,SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

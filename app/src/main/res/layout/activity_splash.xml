@@ -10,103 +10,242 @@
          android:layout_width="match_parent"
          android:layout_height="match_parent" />
 
-     <ImageView
-         android:id="@+id/imagelogo"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentTop="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="37dp"
-         android:src="@drawable/logo1" />
 
-     <com.vadeworks.kannadafacts.RobotoTextView
-         android:id="@+id/welcome_text"
-         style="@style/TextViewAppearance.Headline2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/imagelogo"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="10dp"
-         android:alpha="0.0"
-         android:textSize="20dp"
-         android:text="ಸಿರಿಗನ್ನಡಂ ಗೆಲ್ಗೆ, ಸಿರಿಗನ್ನಡಂ ಬಾಳ್ಗೆ"
-         android:textColor="#ffffff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|center_horizontal|center_vertical">
 
-    <ru.katso.livebutton.LiveButton
-        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-        android:layout_height="40dp"
-        android:layout_width="200dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="ಕನ್ನಡದಲ್ಲಿ ಓದಿ"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:paddingTop="7dp"
-        android:paddingBottom="7dp"
-        android:layout_marginTop="13dp"
-        android:fontFamily="quicksand"
-        android:textSize="20sp"
-        android:id="@+id/readkannada"
-        livebutton:corners="4dp"
-        livebutton:normalHeight="4dp"
-        livebutton:pressedHeight="2dp"
-        livebutton:backgroundColor="#8BC34A"
-        livebutton:shadowColor="#4CAF50"/>
 
-    <ru.katso.livebutton.LiveButton
-        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-        android:layout_height="40dp"
-        android:layout_width="200dp"
-        android:gravity="center"
-        android:text="Read in English"
-        android:layout_below="@+id/readkannada"
-        android:textColor="#ffffff"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:paddingTop="7dp"
-        android:paddingBottom="7dp"
-        android:fontFamily="sans-serif"
-        android:textSize="20sp"
-        android:id="@+id/readhistorynow"
-        livebutton:corners="4dp"
-        livebutton:normalHeight="4dp"
-        livebutton:pressedHeight="2dp"
-        livebutton:backgroundColor="#3498db"
-        livebutton:shadowColor="#2980b9"/>
+        <ImageView
+            android:id="@+id/imagelogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:src="@drawable/logo1" />
 
-     <ImageButton
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/share"
-         android:src="@drawable/share"
-         android:background="@null"
-         android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginBottom="45dp" />
+        <com.vadeworks.kannadafacts.RobotoTextView
+            android:id="@+id/welcome_text"
+            style="@style/TextViewAppearance.Headline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagelogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:alpha="0.0"
+            android:textSize="20dp"
+            android:text="ಸಿರಿಗನ್ನಡಂ ಗೆಲ್ಗೆ, ಸಿರಿಗನ್ನಡಂ ಬಾಳ್ಗೆ"
+            android:textColor="#ffffff" />
 
-     <ImageButton
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/giveusfive"
-         android:layout_toLeftOf="@+id/share"
-         android:layout_marginRight="23dp"
-         android:src="@drawable/like"
-         android:background="@null"
-         android:layout_alignTop="@+id/share"
-         android:layout_centerHorizontal="true" />
 
-     <ImageButton
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/contribute"
-         android:src="@drawable/rating"
-         android:background="@null"
-         android:layout_marginLeft="23dp"
-        android:layout_toRightOf="@+id/share"
-         android:layout_alignTop="@+id/share"
-          />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/welcome_text"
+            android:gravity="center_horizontal|center_vertical">
+
+            <ru.katso.livebutton.LiveButton
+                xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                android:layout_height="40dp"
+                android:layout_width="200dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="ಕನ್ನಡ ಫ್ಯಾಕ್ಟ್ಸ್"
+                android:layout_margin="7dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:fontFamily="quicksand"
+                android:textSize="20sp"
+                android:id="@+id/readkannada"
+                livebutton:corners="4dp"
+                livebutton:normalHeight="4dp"
+                livebutton:pressedHeight="2dp"
+                livebutton:backgroundColor="#FFEB3B"
+                livebutton:shadowColor="#FFEB3B"/>
+
+            <ru.katso.livebutton.LiveButton
+                xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                android:layout_height="40dp"
+                android:layout_width="200dp"
+                android:gravity="center"
+                android:layout_margin="7dp"
+                android:text="Kannada Facts"
+                android:layout_below="@+id/readkannada"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:id="@+id/readhistorynow"
+                livebutton:corners="4dp"
+                livebutton:normalHeight="4dp"
+                livebutton:pressedHeight="2dp"
+                livebutton:backgroundColor="#FF5722"
+                livebutton:shadowColor="#FF5722"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ru.katso.livebutton.LiveButton
+                        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                        android:layout_height="40dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="ಮುಖ್ಯಾಂಶಗಳು"
+                        android:layout_margin="7dp"
+                        android:textColor="#263238"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textSize="20sp"
+                        android:id="@+id/headlines"
+                        livebutton:corners="4dp"
+                        livebutton:normalHeight="4dp"
+                        livebutton:pressedHeight="2dp"
+                        livebutton:backgroundColor="#F5F5F5"
+                        livebutton:shadowColor="#F5F5F5"/>
+
+
+                    <ru.katso.livebutton.LiveButton
+                        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                        android:layout_height="40dp"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:text="ಕ್ರೀಡೆ"
+                        android:layout_weight="1"
+                        android:layout_margin="7dp"
+                        android:textColor="#263238"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textSize="20sp"
+                        android:id="@+id/sports"
+                        livebutton:corners="4dp"
+                        livebutton:normalHeight="4dp"
+                        livebutton:pressedHeight="2dp"
+                        livebutton:backgroundColor="#F5F5F5"
+                        livebutton:shadowColor="#F5F5F5"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ru.katso.livebutton.LiveButton
+                        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                        android:layout_height="40dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="ಸಿನೆಮಾ"
+                        android:layout_margin="7dp"
+                        android:textColor="#263238"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textSize="20sp"
+                        android:id="@+id/cinema"
+                        livebutton:corners="4dp"
+                        livebutton:normalHeight="4dp"
+                        livebutton:pressedHeight="2dp"
+                        livebutton:backgroundColor="#F5F5F5"
+                        livebutton:shadowColor="#F5F5F5"/>
+
+
+                    <ru.katso.livebutton.LiveButton
+                        xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+                        android:layout_height="40dp"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:text="ವಾಣಿಜ್ಯ"
+                        android:layout_weight="1"
+                        android:layout_margin="7dp"
+                        android:textColor="#2e2e2e"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textSize="20sp"
+                        android:id="@+id/business"
+                        livebutton:corners="4dp"
+                        livebutton:normalHeight="4dp"
+                        livebutton:pressedHeight="2dp"
+                        livebutton:backgroundColor="#F5F5F5"
+                        livebutton:shadowColor="#F5F5F5"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/share"
+            android:src="@drawable/share"
+            android:background="@null"
+            android:layout_margin="5dp"
+             />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/giveusfive"
+            android:layout_toLeftOf="@+id/share"
+            android:src="@drawable/like"
+            android:background="@null"
+            android:layout_margin="5dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contribute"
+            android:src="@drawable/rating"
+            android:background="@null"
+            android:layout_margin="5dp"
+            />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>

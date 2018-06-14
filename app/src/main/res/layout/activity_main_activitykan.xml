@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:background="#F44336"
+    android:background="#2e2e2e"
     android:id="@+id/background"
     tools:context="com.vadeworks.kannadafacts.MainActivitykan">
 
@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:scaleType="fitXY"
         android:id="@+id/backdrop"
         />
 
@@ -28,8 +27,13 @@
 
 
 
-    <RelativeLayout android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true">
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,8 +44,19 @@
             android:id="@+id/fact"
             android:textColor="#fff"
             android:textAlignment="center"
-            android:layout_centerVertical="true"
+            android:layout_margin="20dp"
+            />
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/kan_fact"
+            android:src="@drawable/share"
+            android:background="@null"
+            android:layout_gravity="center"
             android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
             />
 
 
@@ -56,26 +71,14 @@
             ads:adUnitId="@string/banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
 
-        <LinearLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="17dp"
-            android:layout_above="@+id/adView"
-            android:layout_centerHorizontal="true">
 
 
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/kan_fact"
-                android:src="@drawable/share"
-                android:background="@null"
-                android:layout_centerHorizontal="true"
-                />
+    </LinearLayout>
 
-        </LinearLayout>
 
-    </RelativeLayout>
+
+
+
 
 </FrameLayout>
